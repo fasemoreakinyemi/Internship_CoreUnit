@@ -93,6 +93,7 @@ print(gff_dic['tRNA'])
 ### Objective > Status
 - Calculate the average gene length > Completed
 - Calculate the average gene legth of each feature class > Completed
+- Install R studio > Completed
 - Clean up your code - write functions > Pending
 - use main function and further function to structure you code > Pending
 - Rewrite the code using object oriented programming > Pending
