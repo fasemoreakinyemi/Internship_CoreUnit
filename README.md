@@ -152,9 +152,7 @@ print(feature_dic)
 ```
 # Day 4: 13/04/2017
 ### Objective > Status
-- Rewrite the code and use pandas > Completed
-- 
-
+- Rewrite the code with pandas > Completed
 
 ### Codes
 - Count the occurance of all feautures (genes, CDS, rRNA, tRNA) in the file
@@ -166,3 +164,8 @@ pd.set_option('display.max_columns', 60)
 file = pd.read_csv('GCF_000210855.2_ASM21085v2_genomic.gff', sep = "\t", comment = "#")
 file['region'].value_counts()
 ```
+- Calculate the average gene length 
+```
+import pandas as pd
+file = pd.read_csv('GCF_000210855.2_ASM21085v2_genomic.gff', sep = "\t", comment = "#")
+sum(file[file.columns[4]]-file[file.columns[3]])/len(file)
