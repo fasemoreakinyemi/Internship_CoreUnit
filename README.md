@@ -150,3 +150,19 @@ for values in gff_dic:
         feature_dic[values] = average
 print(feature_dic)
 ```
+# Day 4: 13/04/2017
+### Objective > Status
+- Rewrite the code and use pandas > Completed
+- 
+
+
+### Codes
+- Count the occurance of all feautures (genes, CDS, rRNA, tRNA) in the file
+```
+import pandas as pd
+pd.set_option('display.mpl_style', 'default')
+pd.set_option('display.line_width', 5000) 
+pd.set_option('display.max_columns', 60)
+file = pd.read_csv('GCF_000210855.2_ASM21085v2_genomic.gff', sep = "\t", comment = "#")
+file['region'].value_counts()
+```
