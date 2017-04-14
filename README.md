@@ -102,7 +102,7 @@ print(gff_dic['tRNA'])
 - Generate a histogram of the length distribution using bokeh > Pending
 
 ### Codes
-#### Calculate the average gene length
+- Calculate the average gene length
 ```
 file  = 'GCF_000210855.2_ASM21085v2_genomic.gff'
 gff_dic = dict()
@@ -121,7 +121,7 @@ num_gene_length = len(l_g_l)
 average_gene_length = total_gene_length/num_gene_length
 print(average_gene_length) 
 ```
-#### Calculate the average gene length of each feature class
+- Calculate the average gene length of each feature class
 ```
 file  = 'GCF_000210855.2_ASM21085v2_genomic.gff'
 gff_dic = dict()
@@ -169,3 +169,17 @@ file['region'].value_counts()
 import pandas as pd
 file = pd.read_csv('GCF_000210855.2_ASM21085v2_genomic.gff', sep = "\t", comment = "#")
 sum(file[file.columns[4]]-file[file.columns[3]])/len(file)
+```
+- Calculate the average gene length of each feature class
+```
+file = pd.read_csv('GCF_000210855.2_ASM21085v2_genomic.gff', sep = "\t", comment = "#")
+gff_dic = dict()
+avg_l = 0
+fet_list = file['region'].unique()
+for row in file['region']:
+    if row not in gff_dic:
+        v_row = file[file['region'] == row]
+        avg_l = sum(v_row[v_row.columns[4]]-v_row[v_row.columns[3]])/len(v_row)
+        gff_dic[row] = avg_l
+print(gff_dic)
+```
