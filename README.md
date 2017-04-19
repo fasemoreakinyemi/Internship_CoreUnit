@@ -193,7 +193,7 @@ print(gff_dic)
 conda install bokeh
 ```
 - Set the enviroment variable for R.exe on command prompt
-# Day 6
+# Day 6: 19/04/2017
 ### Activities
 - Installed DESeq2 package on R
 ```
