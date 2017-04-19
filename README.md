@@ -183,3 +183,27 @@ for row in file['region']:
         gff_dic[row] = avg_l
 print(gff_dic)
 ```
+# Day 5: 18/04/2017
+### Activties
+- Introduction to R
+    - Data Types, basic functions and commands, installing packages
+    - Solved simple problems like creating vectors and dataframe slicing
+- Installed bokeh 
+```
+conda install bokeh
+```
+- Set the enviroment variable for R.exe on command prompt
+# Day 6
+### Activities
+- Installed DESeq2 package on R
+```
+source("https://bioconductor.org/biocLite.R")
+biocLite("DESeq2")
+```
+- Calculated the average gene lenght from the gff file with R
+```
+gff = read.csv(file = file.choose(), sep = '\t', comment = '#')
+sum(gff[,5] - gff[,4])/(length(gff[,4]))
+```
+- Attempted differential gene expression analysis with data and instructions from:
+https://export.uppmax.uu.se/b2013006/courses/RNAseq201410/build/html/courseSource/diffexp-lab.html#deseq
