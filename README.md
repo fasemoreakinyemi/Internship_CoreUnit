@@ -205,5 +205,34 @@ biocLite("DESeq2")
 gff = read.csv(file = file.choose(), sep = '\t', comment = '#')
 sum(gff[,5] - gff[,4])/(length(gff[,4]))
 ```
-- Attempted differential gene expression analysis with data and instructions from:
+- Attempted differential gene expression analysis with data and instructions from
 https://export.uppmax.uu.se/b2013006/courses/RNAseq201410/build/html/courseSource/diffexp-lab.html#deseq
+# Day 7: 20/04/2017
+### Activities
+- Visualization using matplotlib.
+    - Bar graph of feature counts in gff file
+    ```
+    file = pd.read_csv('GCF_000210855.2_ASM21085v2_genomic.gff', sep = "\t", comment = "#")
+    r = file['region'].value_counts()
+    r.plot(kind='bar')
+    ```
+    - Bar graph of average length of each feature
+    ```
+    file = pd.read_csv('GCF_000210855.2_ASM21085v2_genomic.gff', sep = "\t", comment = "#")
+gff_dic = dict()
+avg_l = 0
+xas = []
+yas = []
+fet_list = file['region'].unique()
+for row in file['region']:
+    if row not in gff_dic:
+        v_row = file[file['region'] == row]
+        avg_l = sum(v_row[v_row.columns[4]]-v_row[v_row.columns[3]])/len(v_row)
+        gff_dic[row] = avg_l
+for i in gff_dic:
+    xas.append(i)
+    yas.append(gff_dic[i])
+fr = pd.Series(yas, index = xas)
+fr.plot(kind='bar')
+```
+
