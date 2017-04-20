@@ -219,20 +219,20 @@ https://export.uppmax.uu.se/b2013006/courses/RNAseq201410/build/html/courseSourc
     - Bar graph of average length of each feature
     ```
     file = pd.read_csv('GCF_000210855.2_ASM21085v2_genomic.gff', sep = "\t", comment = "#")
-gff_dic = dict()
-avg_l = 0
-xas = []
-yas = []
-fet_list = file['region'].unique()
-for row in file['region']:
-    if row not in gff_dic:
-        v_row = file[file['region'] == row]
-        avg_l = sum(v_row[v_row.columns[4]]-v_row[v_row.columns[3]])/len(v_row)
-        gff_dic[row] = avg_l
-for i in gff_dic:
-    xas.append(i)
-    yas.append(gff_dic[i])
-fr = pd.Series(yas, index = xas)
-fr.plot(kind='bar')
-```
+    gff_dic = dict()
+    avg_l = 0
+    xas = []
+    yas = []
+    fet_list = file['region'].unique()
+    for row in file['region']:
+        if row not in gff_dic:
+            v_row = file[file['region'] == row]
+            avg_l = sum(v_row[v_row.columns[4]]-v_row[v_row.columns[3]])/len(v_row)
+            gff_dic[row] = avg_l
+    for i in gff_dic:
+        xas.append(i)
+        yas.append(gff_dic[i])
+    fr = pd.Series(yas, index = xas)
+    fr.plot(kind='bar')
+    ```
 
