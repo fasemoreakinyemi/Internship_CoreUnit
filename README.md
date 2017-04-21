@@ -235,4 +235,24 @@ https://export.uppmax.uu.se/b2013006/courses/RNAseq201410/build/html/courseSourc
     fr = pd.Series(yas, index = xas)
     fr.plot(kind='bar')
     ```
+# Day 8: 21/4/2017
+### Activities
+- plotted stacked bar of relative mean of bacteria in abundance.summary file.
+```
+abs = pd.read_csv('abundance.summary', sep = '\t')
+abs.index = abs["taxon"]
+lvl2 = abs[abs['taxlevel'] == 2]
+taxn = lvl2['taxon']
+rel_dic = dict()
+absco = lvl2[lvl2.columns[5:]]
+for i in absco:
+    total = sum(absco[i])
+    if total < 0: continue
+    abnd = (absco[i]/total)*100.0
+    rel_dic[i] = abnd
+df = pd.DataFrame.from_dict(data = rel_dic, orient = 'index' )
+df.plot(kind = 'bar', stacked = True)
+```
+  
+   
 
