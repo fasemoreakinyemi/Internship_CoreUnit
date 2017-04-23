@@ -253,6 +253,17 @@ for i in absco:
 df = pd.DataFrame.from_dict(data = rel_dic, orient = 'index' )
 df.plot(kind = 'bar', stacked = True)
 ```
+- Visualization with bokeh
+    - bar chart of feature counts from gff file
+    ```
+    from bokeh.charts import Bar
+    file = pd.read_csv('GCF_000210855.2_ASM21085v2_genomic.gff', sep = "\t", comment = "#")
+    r = file['region'].value_counts()
+    df = pd.DataFrame(data = r )
+    p = Bar(df, legend = 'top_right'
+    show(p)
+    ```
+    
   
    
 
