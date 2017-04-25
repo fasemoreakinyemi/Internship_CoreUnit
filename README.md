@@ -263,11 +263,11 @@ df.plot(kind = 'bar', stacked = True)
     p = Bar(df, legend = 'top_right'
     show(p)
     ```
-Day 9: 24/04/2017
+# Day 9: 24/04/2017
 Activities:
 - In search for the perfect text editor.
     - Downloaded: Emacs, Pycharm and Vim.
-Day 10: 25/05/2017
+# Day 10: 25/05/2017
 Activities:
 - Wrote an Rscript for counting gene features in a gff file.
 ```
