@@ -279,7 +279,18 @@ file_open = read.csv(args[1], sep = ('\t'), comment = '#')
 fet_c = table(file_open['region'])
 write.table(fet_c, file = args[2], row.names = FALSE)
 ```
-    
+- Modified the script to also calculate the average gene length.
+```
+args = commandArgs (trailingOnly = TRUE)
+if (length(args)==0) {
+	stop("Please provide a file name saved in this working directory", call. = FALSE)
+}
+file_open = read.csv(args[1], sep = ('\t'), comment = '#')
+feat_count = table(file_open['region'])
+avg_len = sum(file_open[,5] - file_open[,4])/(length(file_open[,4]))
+write.table(feat_count, file = args[2], append = FALSE, row.names = FALSE)
+write(avg_len, file = args[2], append = TRUE)
+```
     
   
    
