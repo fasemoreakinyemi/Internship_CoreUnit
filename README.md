@@ -263,6 +263,23 @@ df.plot(kind = 'bar', stacked = True)
     p = Bar(df, legend = 'top_right'
     show(p)
     ```
+Day 9: 24/04/2017
+Activities:
+- In search for the perfect text editor.
+    - Downloaded: Emacs, Pycharm and Vim.
+Day 10: 25/05/2017
+Activities:
+- Wrote an Rscript for counting gene features in a gff file.
+```
+args = commandArgs (trailingOnly = TRUE)
+if (length(args)==0) {
+	stop("Please provide a file name saved in this working directory", call. = FALSE)
+}
+file_open = read.csv(args[1], sep = ('\t'), comment = '#')
+fet_c = table(file_open['region'])
+write.table(fet_c, file = args[2], row.names = FALSE)
+```
+    
     
   
    
