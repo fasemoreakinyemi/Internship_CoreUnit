@@ -267,7 +267,7 @@ df.plot(kind = 'bar', stacked = True)
 Activities:
 - In search for the perfect text editor.
     - Downloaded: Emacs, Pycharm and Vim.
-# Day 10: 25/05/2017
+# Day 10: 25/04/2017
 Activities:
 - Wrote an Rscript for counting gene features in a gff file.
 ```
@@ -291,7 +291,26 @@ avg_len = sum(file_open[,5] - file_open[,4])/(length(file_open[,4]))
 write.table(feat_count, file = args[2], append = FALSE, row.names = FALSE)
 write(avg_len, file = args[2], append = TRUE)
 ```
-    
-  
+# Week 3:
+- Installed UBUNTU
+- Studied about RNA-seq: The protocol and Procedures
+- Introdcution to READemption
+- Installed READemption and its dependent packages
+- Downloaded sample data from: ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP028/SRP028811/SRR951027/
+- Downloaded reference genome and annotation data sets from: ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_refseq/Bacteria/Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645
+
+# Week 4: Day 1, 8/05/2107
+- Created 4 sample data sets from the downladed .sra file after conversion to the fastq format
+    ```
+    fastq-dump --split-files -O /home/mandela/SRR951027.sra # Conversion to fastq
+    cat SRR951027_1.fastq | head -n 1000000 > READemption_analysis/input/reads/InSPI2_R1.fa.bz2
+    cat SRR951027_1.fastq | tail -n 1000000 > READemption_analysis/input/reads/InSPI2_R2.fa.bz2
+    cat SRR951027_1.fastq | tail -n 1000000 > READemption_analysis/input/reads/LSP_R1.fa.bz2
+    cat SRR951027_1.fastq | head -n 1000000 > READemption_analysis/input/reads/LSP_R2.fa.bz2
+    ```
+- Performed a READemption analysis using the above data sets
+      - reademption align -p 4 --poly_a_clipping READemption_analysis (This command failed initially with 'Invalid    data stream ' error. Thornston explained that this was because of the method of data creation. The data sets had a bunzip extension but were not compressed data. He renamed the extension to .fq)
+
+
    
 
