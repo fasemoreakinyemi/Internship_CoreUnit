@@ -310,7 +310,7 @@ write(avg_len, file = args[2], append = TRUE)
     ```
 - Performed a READemption analysis using the above data sets
     - reademption align -p 4 --poly_a_clipping READemption_analysis 
-    (The above command failed initially with 'Invalid    data stream ' error. Thornston explained that this was because of the method of data creation. The data sets had a bunzip extension but were not compressed data. He renamed the extension to .fq)
+    - (The above command failed initially with 'Invalid    data stream ' error. Thornston explained that this was because of the method of data creation. The data sets had a bunzip extension but were not compressed data. He renamed the extension to .fq)
 
 
 
