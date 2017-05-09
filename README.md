@@ -311,6 +311,24 @@ write(avg_len, file = args[2], append = TRUE)
 - Performed a READemption analysis using the above data sets
     - reademption align -p 4 --poly_a_clipping READemption_analysis 
     - (The above command failed initially with 'Invalid    data stream ' error. Thornston explained that this was because of the method of data creation. The data sets had a bunzip extension but were not compressed data. He renamed the extension to .fq)
+# Week 4, Day 2: 9/05/2017
+- Reademption analysis with a different data set
+    - created bash scripts for conversion from .sra to .fastq
+    ```
+    #!/bin/bash
+    for i in $ls *.sra
+    do
+        fastq-dump --split-files -O /home/mandela/READemption-analysis/input/reads $i
+    done
+    ```
+    - bash script for slicing data set to 1 million reads
+    ```
+    for file in $ls *.fastq
+    do
+    cat $file | head -n 1000000 > /home/mandela/READemption_analysis/input/reads/${file}
+    done
+    ```
+
 
 
 
