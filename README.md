@@ -343,6 +343,13 @@ write(avg_len, file = args[2], append = TRUE)
 		- GSM1967922 	in vitro WT 01 h R3
     - annotation : ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/210/855/GCF_000210855.2_ASM21085v2/GCF_000210855.2_ASM21085v2_genomic.gff.gz
     - reference_genome: ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/210/855/GCF_000210855.2_ASM21085v2/GCF_000210855.2_ASM21085v2_genomic.fna.gz
+- script for creating  subset of 2000000 characters
+```
+for file in /home/mandela/READemption-analysis/input/reads/*
+do
+        cat $file | head -n 2000000 > READemption_analysis/input/reads/$(basename $file)
+done
+```
 
 
 
