@@ -330,18 +330,17 @@ write(avg_len, file = args[2], append = TRUE)
     ```
 # Week 4, Day 3: 10/05/2017
 ## Analysis of Dual RNA-seq datasets with READemption
-7949
 - input files:
      - reads:
-	- data source : 
-https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE6
-        - GSM1967914 	in vitro ΔpinT 01 h R1
-	- GSM1967915 	in vitro ΔpinT 01 h R2
-	- GSM1967916 	in vitro ΔpinT 01 h R3
+		- data source : 
+		https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE67949
+		- GSM1967914 	in vitro ΔpinT 01 h R1
+		- GSM1967915 	in vitro ΔpinT 01 h R2
+		- GSM1967916 	in vitro ΔpinT 01 h R3
 
-	- GSM1967920 	in vitro WT 01 h R1
-	- GSM1967921 	in vitro WT 01 h R2
-	- GSM1967922 	in vitro WT 01 h R3
+		- GSM1967920 	in vitro WT 01 h R1
+		- GSM1967921 	in vitro WT 01 h R2
+		- GSM1967922 	in vitro WT 01 h R3
     - annotation : ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/210/855/GCF_000210855.2_ASM21085v2/GCF_000210855.2_ASM21085v2_genomic.gff.gz
     - reference_genome: ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/210/855/GCF_000210855.2_ASM21085v2/GCF_000210855.2_ASM21085v2_genomic.fna.gz
 
