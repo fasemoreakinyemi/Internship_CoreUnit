@@ -350,7 +350,41 @@ do
         cat $file | head -n 2000000 > READemption_analysis/input/reads/$(basename $file)
 done
 ```
+#Week 4, Day 4: 11/05/2017
+## Analysis of Dual RNA-seq data sets with bash script.
+```
+#!/bin/bash
+Re="READemption_analysis"
+file_path="/home/mandela/READemption_analysis/input/reads/*"
+CHECK="first_file"
 
+#reademption align -p 4 -q --poly_a_clipping $Re
+#reademption coverage -p 4 $Re
+#reademption gene_quanti -p 4 --features CDS,tRNA,rRNA $Re
+for file in $(ls $file_path);
+do
+    sample_name=$(basename $file)
+    sample_nameWE=$(echo $sample_name | sed "s/_REP[0-9].fq//")
+    if [ $CHECK == "first_file" ]; then
+        sample_feed=$sample_name
+        sample_feedWE=$sample_nameWE
+        CHECK="others"
+
+    else
+        sample_feed=$sample_feed,$sample_name
+        sample_feedWE=$sample_feedWE,$sample_nameWE
+    fi
+done
+    reademption deseq \
+    -l $sample_feed \
+    -c $sample_feedWE $Re
+
+
+reademption viz_align $Re
+reademption viz_gene_quanti $Re
+reademption viz_deseq $Re
+
+```
 
 
 
