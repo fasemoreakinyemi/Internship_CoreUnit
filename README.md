@@ -358,9 +358,9 @@ Re="READemption_analysis"
 file_path="/home/mandela/READemption_analysis/input/reads/*"
 CHECK="first_file"
 
-#reademption align -p 4 -q --poly_a_clipping $Re
-#reademption coverage -p 4 $Re
-#reademption gene_quanti -p 4 --features CDS,tRNA,rRNA $Re
+reademption align -p 4 -q --poly_a_clipping $Re
+reademption coverage -p 4 $Re
+reademption gene_quanti -p 4 --features CDS,tRNA,rRNA $Re
 for file in $(ls $file_path);
 do
     sample_name=$(basename $file)
