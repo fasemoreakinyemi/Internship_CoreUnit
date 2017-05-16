@@ -385,7 +385,7 @@ reademption viz_gene_quanti $Re
 reademption viz_deseq $Re
 
 ```
-# Week 5, day 1
+# Week 5, day 2: 16/05/2017
 Heatmap plot of Dual Seq Data with R
 ```
 #open file
