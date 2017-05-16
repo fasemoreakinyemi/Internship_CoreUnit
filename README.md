@@ -385,6 +385,35 @@ reademption viz_gene_quanti $Re
 reademption viz_deseq $Re
 
 ```
+# Week 5, day 1
+Heatmap plot of Dual Seq Data with R
+```
+#open file
+raw = read.csv( file = "READemption_analysis/output/deseq/deseq_with_annotations/deseq_comp_PnTM_vs_WT_with_annotation_and_countings.csv", sep = '\t', header = T, comment = '#')
+raw_x = raw[,10:length(raw)]
+
+# slice gene_tag
+
+att_col = raw_x[,1]
+att_col = raw[,10]
+f_col = str_split_fixed(att_col, ";",9)
+f_col1 = f_col[,3]
+f_col2 = str_split_fixed(f_col1, ":", 5)
+f_col3 = f_col2[,2]
+f_col4 = str_split_fixed(f_col3,",",2)
+f_col5 = f_col4[,1]
+f_col4 = str_split_fixed(f_col3,",",2)
+f_col5 = f_col4[,1]
+raw_x$Attributes = f_col5
+
+#plot data
+
+m <- subset(raw_x, log2FoldChange > 0.5) # condition
+l <- m[,2:7]                             #slice count data
+k <- data.matrix(l)                      # convert count data to matrix
+p <- plot_ly(x = colnames(l), y = m[,1], z = k, type = "heatmap",colors = colorRamp(c("red", "green"))) # plot heatmap
+p
+```
 
 
 
