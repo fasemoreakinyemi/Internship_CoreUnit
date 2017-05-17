@@ -414,6 +414,34 @@ k <- data.matrix(l)                      # convert count data to matrix
 p <- plot_ly(x = colnames(l), y = m[,1], z = k, type = "heatmap",colors = colorRamp(c("red", "green"))) # plot heatmap
 p
 ```
+# Week 5, Day 3: 17/5/2017
+### Heatmap of Dual_Rna datasets with seaborn
+```
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+file_1 = pd.read_csv('READemption_analysis/output/deseq/deseq_with_annotations/deseq_comp_PnTM_vs_WT_with_annotation_and_countings.csv', sep = '\t', comment = '#')
+file_2 = file_1[file_1.columns[9:]]
+
+col_attr = file_2[file_2.columns[0]]
+
+col_attr1 = col_attr.str.split(';',9,expand=True)
+col_attr2 = col_attr1[col_attr1.columns[2]]
+col_attr3 = col_attr2.str.split(':',5,expand=True)
+col_attr4 = col_attr3[col_attr3.columns[1]]
+col_attr5 = col_attr4.str.split(',',2,expand=True)
+col_attr6 = col_attr5[col_attr5.columns[0]]
+file_x = file_2
+file_x['Attributes'] = col_attr6
+file_x.index = file_x[file_x.columns[0]]
+fx_sub = file_x[file_x['log2FoldChange']>0.6]
+fxs_p = fx_sub[fx_sub.columns[1:7]]
+ax = sns.heatmap(fxs_p)
+ax.set_xticklabels(labels = list(fxs_p), rotation=30)
+ax.set_yticklabels(labels = list(fxs_p.index), rotation=30)
+sns.plt.show()
+```
 
 
 
