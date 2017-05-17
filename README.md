@@ -386,14 +386,14 @@ reademption viz_deseq $Re
 
 ```
 # Week 5, day 2: 16/05/2017
-Heatmap plot of Dual Seq Data with R
+###Heatmap plot of Dual Seq Data with R
 ```
 #open file
 raw = read.csv( file = "READemption_analysis/output/deseq/deseq_with_annotations/deseq_comp_PnTM_vs_WT_with_annotation_and_countings.csv", sep = '\t', header = T, comment = '#')
 raw_x = raw[,10:length(raw)]
 
 # slice gene_tag
-
+library('stringr')
 att_col = raw_x[,1]
 att_col = raw[,10]
 f_col = str_split_fixed(att_col, ";",9)
@@ -407,6 +407,7 @@ f_col5 = f_col4[,1]
 raw_x$Attributes = f_col5
 
 #plot data
+library('plotly')
 
 m <- subset(raw_x, log2FoldChange > 0.5) # condition
 l <- m[,2:7]                             #slice count data
