@@ -386,7 +386,7 @@ reademption viz_deseq $Re
 
 ```
 # Week 5, day 2: 16/05/2017
-###Heatmap plot of Dual Seq Data with R
+### Heatmap plot of Dual Seq Data with R
 ```
 #open file
 raw = read.csv( file = "READemption_analysis/output/deseq/deseq_with_annotations/deseq_comp_PnTM_vs_WT_with_annotation_and_countings.csv", sep = '\t', header = T, comment = '#')
