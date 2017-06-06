@@ -443,8 +443,11 @@ ax.set_xticklabels(labels = list(fxs_p), rotation=30)
 ax.set_yticklabels(labels = list(fxs_p.index), rotation=30)
 sns.plt.show()
 ```
-
-
+# Week 6
+- Presentation 
+- Introduction to Biopython
+- Biopython exercises
+----------- # END of F1 -----------
 
 
 
